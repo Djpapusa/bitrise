@@ -77,7 +77,7 @@ func TestGetTrimmedStepName(t *testing.T) {
 		}
 
 		actual := getTrimmedStepName(result)
-		expected := "This is a very long string, this is a very long string, this …"
+		expected := "(0) This is a very long str… (…, this is a very long string.)"
 		require.Equal(t, expected, actual)
 	}
 
@@ -114,7 +114,7 @@ func TestGetRunningStepHeaderMainSection(t *testing.T) {
 	}
 
 	actual := getRunningStepHeaderMainSection(stepInfo, 0)
-	expected := "| (0) This is a very long string, this is a very long string, this is a ver... |"
+	expected := "| (0) This is a very long string, this is a very long string, this is a very … |"
 	require.Equal(t, expected, actual)
 }
 
@@ -151,7 +151,7 @@ func TestGetRunningStepFooterMainSection(t *testing.T) {
 		}
 
 		actual := getRunningStepFooterMainSection(result)
-		expected := "| \x1b[31;1mx\x1b[0m | \x1b[31;1mThis is a very long string, this is a very l... (exit code: 1)\x1b[0m| 0.01 sec |"
+		expected := "| \x1b[31;1mx\x1b[0m | \x1b[31;1m(0) This is a very long str… (…, this is a very long string.)\x1b[0m | 0.01 sec |"
 		require.Equal(t, expected, actual)
 	}
 

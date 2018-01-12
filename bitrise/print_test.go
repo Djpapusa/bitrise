@@ -100,7 +100,7 @@ func TestGetTrimmedStepName(t *testing.T) {
 		}
 
 		actual := getTrimmedStepName(result)
-		expected := ""
+		expected := "(0)                          (…, this is a very long string.)"
 		require.Equal(t, expected, actual)
 	}
 }
@@ -173,7 +173,7 @@ func TestGetRunningStepFooterMainSection(t *testing.T) {
 		}
 
 		actual := getRunningStepFooterMainSection(result)
-		expected := "| \x1b[32;1m✓\x1b[0m | \x1b[32;1m\x1b[0m                                                              | 0.00 sec |"
+		expected := "| \x1b[32;1m✓\x1b[0m | \x1b[32;1m(0)                          (…, this is a very long string.)\x1b[0m | 0.00 sec |"
 		require.Equal(t, expected, actual)
 	}
 
